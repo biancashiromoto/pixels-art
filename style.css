@@ -33,7 +33,7 @@ body {
 }
 
 h1 {
-  font: 3.5rem var(--font-family);
+  font: 3rem var(--font-family);
 }
 
 main {
@@ -126,7 +126,7 @@ button:hover {
 
 footer {
   position: absolute;
-  bottom: 1rem;
+  bottom: 0.25rem;
   left: 50%;
   transform: translateX(-50%);
 }
