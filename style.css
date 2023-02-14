@@ -126,7 +126,7 @@ button:hover {
 
 footer {
   position: absolute;
-  bottom: 0.25rem;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 }
