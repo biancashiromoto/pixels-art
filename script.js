@@ -19,17 +19,7 @@ for (let index = 0; index < colors.length; index += 1) {
 }
 
 const header = document.querySelector('.header');
-
-const title = document.createElement('h1');
-title.innerHTML = 'Pixels Art';
-title.setAttribute('id', 'title');
-header.appendChild(title);
-
-const randomColors = document.createElement('button');
-
-randomColors.setAttribute('id', 'button-random-color');
-randomColors.innerHTML = 'Cores aleatórias';
-articlePalette.appendChild(randomColors);
+const randomColorsBtn = document.getElementById('btn-random-colors');
 
 const calcRandomColor = () => {
   const red = Math.floor(Math.random() * 256);
@@ -49,30 +39,14 @@ const changeBackgroundColor = () => {
   }
 };
 
-randomColors.addEventListener('click', () => {
+randomColorsBtn.addEventListener('click', () => {
+  console.log('teste');
   changeBackgroundColor();
 });
 
 const articleBoard = document.createElement('article');
 articleBoard.classList.add('article-board');
 main.appendChild(articleBoard);
-
-const boardSizeContainer = document.createElement('section');
-boardSizeContainer.classList.add('board-size-container');
-articlePalette.appendChild(boardSizeContainer);
-
-// const boardSize = document.createElement('input');
-// boardSize.type = 'number';
-// boardSize.setAttribute('id', 'board-size');
-// boardSizeContainer.appendChild(boardSize);
-// const generateBoard = document.createElement('button');
-// generateBoard.innerHTML = 'VQV';
-// generateBoard.setAttribute('id', 'generate-board');
-// boardSizeContainer.appendChild(generateBoard);
-
-// if (boardSize.value <= 0 || boardSize.value === null) {
-//   alert('Board inválido!');
-// };
 
 const pixelBoard = document.createElement('section');
 pixelBoard.setAttribute('id', 'pixel-board');
@@ -115,12 +89,8 @@ for (let index = 0; index < pixelSquares.length; index += 1) {
   });
 }
 
-const clearBoardButton = document.createElement('button');
-clearBoardButton.innerHTML = 'Limpar';
-clearBoardButton.setAttribute('id', 'clear-board');
-articlePalette.appendChild(clearBoardButton);
-
-clearBoardButton.addEventListener('click', () => {
+const clearBoardBtn = document.getElementById('btn-clear-board');
+clearBoardBtn.addEventListener('click', () => {
   for (let index = 0; index < pixelSquares.length; index += 1) {
     pixelSquares[index].style.backgroundColor = 'white';
   }
