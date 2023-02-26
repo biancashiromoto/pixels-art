@@ -1,8 +1,9 @@
 window.onload = () => {
   
-const colorSample = document.querySelectorAll('.color');
-const main = document.getElementsByTagName('main')[0];
-const pixelSquares = document.getElementsByClassName('pixel');
+  const colorSample = document.querySelectorAll('.color');
+  const main = document.getElementsByTagName('main')[0];
+  const pixelSquares = document.getElementsByClassName('pixel');
+  const clearBoardBtn = document.getElementById('btn-clear-board');
 
 const calcRandomColor = () => {
   const red = Math.floor(Math.random() * 256);
@@ -71,18 +72,13 @@ colorSquare.forEach(squareItem => {
   });
 });
 
-
-for (let index = 0; index < pixelSquares.length; index += 1) {
-  pixelSquares[index].addEventListener('click', () => {
-    pixelSquares[index].style.backgroundColor = getColor();
+for (const square of pixelSquares) {
+  square.addEventListener('click', () => {
+    square.style.backgroundColor = getColor();
+  });
+  clearBoardBtn.addEventListener('click', () => {
+    square.style.backgroundColor = 'white';
   });
 }
-
-const clearBoardBtn = document.getElementById('btn-clear-board');
-clearBoardBtn.addEventListener('click', () => {
-  for (let index = 0; index < pixelSquares.length; index += 1) {
-    pixelSquares[index].style.backgroundColor = 'white';
-  }
-});
 
 };
