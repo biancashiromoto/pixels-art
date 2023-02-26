@@ -5,7 +5,6 @@ window.onload = () => {
   const main = document.getElementsByTagName('main')[0];
   const pixelSquares = document.getElementsByClassName('pixel');
   const clearBoardBtn = document.getElementById('btn-clear-board');
-  const colorPalette = document.querySelector('article-color-palette');
 
 const calcRandomColor = () => {
   const red = Math.floor(Math.random() * 256);
@@ -36,20 +35,7 @@ randomColorsBtn.addEventListener('click', () => {
   changeBackgroundColor();
 });
 
-
-
-// for (let index = 0; index < 5; index += 1) {
-//   const pixel = document.createElement('div');
-//   articleBoard.appendChild(pixel);
-//   pixel.classList.add('pixel');
-//   for (let index2 = 1; index2 < 5; index2 += 1) {
-//     const pixel2 = document.createElement('div');
-//     articleBoard.appendChild(pixel2);
-//     pixel2.classList.add('pixel');
-//   }
-// };
-
-const boardSize = 7;
+const boardSize = 2;
 articleBoard.style.gridTemplateColumns = `repeat(${boardSize}, 1fr)`;
 for (let indexWidth = 0; indexWidth < boardSize; indexWidth += 1) {
   const pixel = document.createElement('div');

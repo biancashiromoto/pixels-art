@@ -124,6 +124,18 @@ button:hover {
   cursor: pointer;
 }
 
+.board-size-container {
+  display: flex;
+  margin: 0.5rem 0;
+  width: 70%;
+  height: fit-content;
+}
+
+label {
+  font: .75rem var(--font-family);
+  width: 60%;
+}
+
 footer {
   font: 0.5rem var(--font-family);
   color: #909191;
