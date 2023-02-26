@@ -1,8 +1,8 @@
 window.onload = () => {
-
+  
+const colorSample = document.querySelectorAll('.color');
 const main = document.getElementsByTagName('main')[0];
-
-const articlePalette = document.querySelector(('.article-color-palette'));
+const pixelSquares = document.getElementsByClassName('pixel');
 
 const calcRandomColor = () => {
   const red = Math.floor(Math.random() * 256);
@@ -12,20 +12,11 @@ const calcRandomColor = () => {
   return newColor;
 };
 
-// const colors = ['#000000', '#ff79c6', '#50fa7b', '#ffb86c'];
-const colorSample = document.querySelectorAll('.color');
-let initialColors = [];
-const initialColorsLength = 4;
-
-console.log(calcRandomColor())
-
-for (let index = 0; index < colorSample; index += 1) {
-  colorSample[index].style.backgroundColor = calcRandomColor;
+for (let index = 0; index < 4; index += 1) {
+  for (const sample of colorSample) {
+    sample.style.backgroundColor = calcRandomColor();
+  }
 }
-
-// for (let index = 0; index < colors.length; index += 1) {
-//   colorSample.style.backgroundColor = colors[index];
-// }
 
 const randomColorsBtn = document.getElementById('btn-random-colors');
 
@@ -80,7 +71,6 @@ colorSquare.forEach(squareItem => {
   });
 });
 
-const pixelSquares = document.getElementsByClassName('pixel');
 
 for (let index = 0; index < pixelSquares.length; index += 1) {
   pixelSquares[index].addEventListener('click', () => {
