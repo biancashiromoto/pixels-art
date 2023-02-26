@@ -4,16 +4,6 @@ const main = document.getElementsByTagName('main')[0];
 
 const articlePalette = document.querySelector(('.article-color-palette'));
 
-const colors = ['#000000', '#ff79c6', '#50fa7b', '#ffb86c'];
-for (let index = 0; index < colors.length; index += 1) {
-  const colorSample = document.createElement('div');
-  colorSample.classList.add('color');
-  articlePalette.appendChild(colorSample);
-  colorSample.style.backgroundColor = colors[index];
-}
-
-const randomColorsBtn = document.getElementById('btn-random-colors');
-
 const calcRandomColor = () => {
   const red = Math.floor(Math.random() * 256);
   const green = Math.floor(Math.random() * 256);
@@ -22,11 +12,27 @@ const calcRandomColor = () => {
   return newColor;
 };
 
+// const colors = ['#000000', '#ff79c6', '#50fa7b', '#ffb86c'];
+const colorSample = document.querySelectorAll('.color');
+let initialColors = [];
+const initialColorsLength = 4;
+
+console.log(calcRandomColor())
+
+for (let index = 0; index < colorSample; index += 1) {
+  colorSample[index].style.backgroundColor = calcRandomColor;
+}
+
+// for (let index = 0; index < colors.length; index += 1) {
+//   colorSample.style.backgroundColor = colors[index];
+// }
+
+const randomColorsBtn = document.getElementById('btn-random-colors');
+
 const colorSquare = document.querySelectorAll('.color');
 colorSquare[0].classList.add('selected');
 const changeBackgroundColor = () => {
   for (let index = 0; index < colorSquare.length; index += 1) {
-    colorSquare[0].style.backgroundColor = '#000000';
     const colorSquareItem = colorSquare[index];
     colorSquareItem.style.backgroundColor = calcRandomColor();
   }
