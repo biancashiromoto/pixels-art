@@ -1,18 +1,9 @@
 window.onload = () => {
-
-const main = document.getElementsByTagName('main')[0];
-
-const articlePalette = document.querySelector(('.article-color-palette'));
-
-const colors = ['#000000', '#ff79c6', '#50fa7b', '#ffb86c'];
-for (let index = 0; index < colors.length; index += 1) {
-  const colorSample = document.createElement('div');
-  colorSample.classList.add('color');
-  articlePalette.appendChild(colorSample);
-  colorSample.style.backgroundColor = colors[index];
-}
-
-const randomColorsBtn = document.getElementById('btn-random-colors');
+  
+  const colorSample = document.querySelectorAll('.color');
+  const main = document.getElementsByTagName('main')[0];
+  const pixelSquares = document.getElementsByClassName('pixel');
+  const clearBoardBtn = document.getElementById('btn-clear-board');
 
 const calcRandomColor = () => {
   const red = Math.floor(Math.random() * 256);
@@ -22,11 +13,18 @@ const calcRandomColor = () => {
   return newColor;
 };
 
+for (let index = 0; index < 4; index += 1) {
+  for (const sample of colorSample) {
+    sample.style.backgroundColor = calcRandomColor();
+  }
+}
+
+const randomColorsBtn = document.getElementById('btn-random-colors');
+
 const colorSquare = document.querySelectorAll('.color');
 colorSquare[0].classList.add('selected');
 const changeBackgroundColor = () => {
   for (let index = 0; index < colorSquare.length; index += 1) {
-    colorSquare[0].style.backgroundColor = '#000000';
     const colorSquareItem = colorSquare[index];
     colorSquareItem.style.backgroundColor = calcRandomColor();
   }
@@ -58,9 +56,9 @@ for (let index = 0; index < 5; index += 1) {
 
 const getColor = () => {
   const clickedColor = document.querySelectorAll('.selected');
-  for (let index = 0; index < clickedColor.length; index += 1) {
-    const squareItemBckgColor = clickedColor[index].style.backgroundColor;
-    return squareItemBckgColor;
+  for (const selectedColor of clickedColor) {
+    const bckgColor = selectedColor.style.backgroundColor;
+    return bckgColor;
   }
 };
 
@@ -74,19 +72,13 @@ colorSquare.forEach(squareItem => {
   });
 });
 
-const pixelSquares = document.getElementsByClassName('pixel');
-
-for (let index = 0; index < pixelSquares.length; index += 1) {
-  pixelSquares[index].addEventListener('click', () => {
-    pixelSquares[index].style.backgroundColor = getColor();
+for (const square of pixelSquares) {
+  square.addEventListener('click', () => {
+    square.style.backgroundColor = getColor();
+  });
+  clearBoardBtn.addEventListener('click', () => {
+    square.style.backgroundColor = 'white';
   });
 }
-
-const clearBoardBtn = document.getElementById('btn-clear-board');
-clearBoardBtn.addEventListener('click', () => {
-  for (let index = 0; index < pixelSquares.length; index += 1) {
-    pixelSquares[index].style.backgroundColor = 'white';
-  }
-});
 
 };
