@@ -55,9 +55,9 @@ for (let index = 0; index < 5; index += 1) {
 
 const getColor = () => {
   const clickedColor = document.querySelectorAll('.selected');
-  for (let index = 0; index < clickedColor.length; index += 1) {
-    const squareItemBckgColor = clickedColor[index].style.backgroundColor;
-    return squareItemBckgColor;
+  for (const selectedColor of clickedColor) {
+    const bckgColor = selectedColor.style.backgroundColor;
+    return bckgColor;
   }
 };
 
