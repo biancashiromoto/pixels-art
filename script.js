@@ -2,23 +2,16 @@ window.onload = () => {
 
 const main = document.getElementsByTagName('main')[0];
 
-const articlePalette = document.createElement('article');
-articlePalette.classList.add('article-palette');
-main.appendChild(articlePalette);
-
-const colorPalette = document.createElement('section');
-colorPalette.setAttribute('id', 'color-palette');
-articlePalette.appendChild(colorPalette);
+const articlePalette = document.querySelector(('.article-color-palette'));
 
 const colors = ['#000000', '#ff79c6', '#50fa7b', '#ffb86c'];
 for (let index = 0; index < colors.length; index += 1) {
   const colorSample = document.createElement('div');
   colorSample.classList.add('color');
-  colorPalette.appendChild(colorSample);
+  articlePalette.appendChild(colorSample);
   colorSample.style.backgroundColor = colors[index];
 }
 
-const header = document.querySelector('.header');
 const randomColorsBtn = document.getElementById('btn-random-colors');
 
 const calcRandomColor = () => {

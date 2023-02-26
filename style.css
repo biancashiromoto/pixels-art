@@ -20,9 +20,8 @@ body {
   align-items: center;
   background-clip: border-box;
   background-color: var(--background-color);
-  background-image: url(/91657.jpg);
-  background-position: center;
-  background-size: 90%;
+  background-image: url(91657.jpg);
+  background-size: cover;
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -32,26 +31,35 @@ body {
   text-align: center;
   transition: 300ms;
   user-select: none;
-  width: 100%;
+  width: 100vw;
 }
 
 h1 {
-  font: 1.75rem var(--font-family);
+  font: 1.925rem var(--font-family);
+  margin: 0.75rem 0;
 }
 
-.article-palette, .article-board {
+.article-board, .btn-container {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0;
+}
+
+.article-color-palette {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-container, .article-color-palette {
+  margin-bottom: .75rem;
 }
 
 .color {
   border-radius: 100%;
-  height: 30px;
-  width: 30px;
-  margin: 0 0.5rem;
+  height: 45px;
+  width: 45px;
+  margin: 0.75rem;
 }
 
 #color-palette {
@@ -84,14 +92,13 @@ button {
   font: 0.875rem var(--font-family);
   margin: 0.5rem;
   padding: 1rem 0.75rem;
-  width: 300px;
+  width: 250px;
 }
 
 button:hover {
   background-color: #2f15bf;
   transition: 500ms;
 }
-
 
 .board-size-container {
   align-items: center;
@@ -114,12 +121,16 @@ button:hover {
   transition: 50ms;
 }
 
-.btn, .pixel, .color {
+.btn, .pixel, .color, a {
   cursor: pointer;
 }
 
-p, a {
-  color: var(--light-blue);
-  font: 200 0.75rem 'Montserrat'; 
+span {
+  font-size: 0.625rem;
+  color: var(--white);
+}
+
+a {
   text-decoration: none;
+  color: var(--white);
 }
